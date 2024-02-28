@@ -2,7 +2,13 @@ import logo from "@/assets/logo.svg";
 import { cn } from "@/lib/utils";
 import { currentUser, logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { Menu, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ModeToggle } from "../modeToggle/ModeToggle";
@@ -56,33 +62,75 @@ const Navbar = () => {
             All Supplies
           </NavLink>
 
-          <NavLink
-            className={({ isActive }) =>
-              cn(
-                "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
-                {
-                  " bg-tangerine text-white": isActive,
-                }
-              )
-            }
-            to="/about-us"
-          >
-            About Us
-          </NavLink>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded">
+              <span className="inline-block">About Us</span>{" "}
+              <ChevronDown className="inline-block" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="  bg-light-tangerine rounded-xl p-2">
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/about-us"
+                >
+                  About Us
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/leader-board"
+                >
+                  Leader board
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/community"
+                >
+                  Community
+                </NavLink>
+              </DropdownMenuItem>
 
-          <NavLink
-            className={({ isActive }) =>
-              cn(
-                "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
-                {
-                  " bg-tangerine text-white": isActive,
-                }
-              )
-            }
-            to="/community"
-          >
-            Community
-          </NavLink>
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {user ? (
             <NavLink
@@ -164,20 +212,75 @@ const Navbar = () => {
             All Supplies
           </NavLink>
 
-          <NavLink
-            onClick={handleOpen}
-            className={({ isActive }) =>
-              cn(
-                "font-roboto text-[20px] font-medium leading-[150%] tracking-wider",
-                {
-                  " bg-tangerine text-white": isActive,
-                }
-              )
-            }
-            to="/community"
-          >
-            Community
-          </NavLink>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded">
+              <span className="inline-block">About Us</span>{" "}
+              <ChevronDown className="inline-block" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="  bg-light-tangerine rounded-xl p-2">
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/about-us"
+                >
+                  About Us
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/leader-board"
+                >
+                  Leader board
+                </NavLink>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/community"
+                >
+                  Community
+                </NavLink>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <NavLink
+                  className={({ isActive }) =>
+                    cn(
+                      "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                      {
+                        " bg-tangerine text-white": isActive,
+                      }
+                    )
+                  }
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {user ? (
             <NavLink

@@ -61,7 +61,7 @@ const Sidebar = () => {
           }
         >
           <CopyPlus className=" shrink-0" />
-          <span className="truncate">Create supply</span>{" "}
+          <span className="truncate">Create supply</span>
         </NavLink>
 
         <NavLink
