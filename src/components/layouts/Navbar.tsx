@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ModeToggle } from "../modeToggle/ModeToggle";
 import { Button } from "../ui/button";
 
 const Navbar = () => {
@@ -64,6 +65,20 @@ const Navbar = () => {
                 }
               )
             }
+            to="/about-us"
+          >
+            About Us
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                {
+                  " bg-tangerine text-white": isActive,
+                }
+              )
+            }
             to="/community"
           >
             Community
@@ -87,6 +102,8 @@ const Navbar = () => {
             ""
           )}
         </ul>
+
+        <ModeToggle />
 
         {user ? (
           <Button

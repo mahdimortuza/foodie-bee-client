@@ -1,6 +1,7 @@
 import AdminLayout from "@/components/layouts/AdminLayout";
 import ProtectedRoute from "@/components/layouts/ProtectedRoute";
 import ErrorPage from "@/pages/ErrorPage";
+import AboutUs from "@/pages/about/AboutUs";
 import AllSuppliesManagement from "@/pages/admin/AllSuppliesManagement";
 import CreateSupplyManagement from "@/pages/admin/CreateSupplyManagement";
 import Dashboard from "@/pages/admin/Dashboard";
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "supplies/:id",
         element: <SupplyDetail />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
       {
         path: "community",

@@ -1,4 +1,6 @@
 import Container from "@/components/Container";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const VolunteerSection = () => {
   return (
@@ -12,12 +14,12 @@ const VolunteerSection = () => {
             Make a difference in your community. Become a volunteer and help us
             distribute food to those in need.
           </p>
-          <a
-            href="/volunteer-signup" // Replace with the actual link to your volunteer signup page
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300"
-          >
-            Sign Up as a Volunteer
-          </a>
+
+          <Link to="/volunteer">
+            <Button className="bg-gradient-to-b from-[#EFAB68] to-[#F48E28]  hover:bg-gradient-to-b hover:from-[#F48E28] hover:to-[#EFAB68]   text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+              Sign Up as a Volunteer
+            </Button>
+          </Link>
         </div>
       </section>
     </Container>

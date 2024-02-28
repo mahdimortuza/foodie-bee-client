@@ -37,7 +37,7 @@ const Footer = () => {
 
         {/* col-2  */}
         <div>
-          <h3 className="text-2xl text-black font-bold">Opening Restaurant</h3>
+          <h3 className="text-2xl font-bold">Opening Restaurant</h3>
           <p className="text-gray font-inter mt-11 text-base">
             Sat-Wet: 09:00am-10:00PM
           </p>
@@ -52,7 +52,7 @@ const Footer = () => {
 
         {/* col-3  */}
         <ul className="flex flex-col">
-          <h3 className="text-2xl text-black font-bold"> User Link</h3>
+          <h3 className="text-2xl font-bold"> User Link</h3>
           <NavLink to="/" className="text-gray font-inter mt-11 text-base">
             About Us
           </NavLink>
@@ -72,7 +72,7 @@ const Footer = () => {
 
         {/* col-4  */}
         <div>
-          <h3 className="text-2xl text-black font-bold">Contact Us </h3>
+          <h3 className="text-2xl font-bold">Contact Us </h3>
           <p className="text-gray font-inter mt-11 text-base">
             1234 Country Club Ave
           </p>

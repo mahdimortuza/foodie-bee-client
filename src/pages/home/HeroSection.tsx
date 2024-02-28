@@ -47,7 +47,7 @@ const HeroSection = () => {
         {/* 3rd col  */}
         <div
           className="grid grid-cols-2 md:w-full 
-        bg-gradient-to-b from-[#e0e0e0] to-white rounded-2xl"
+        bg-gradient-to-b from-tangerine to-light-tangerine rounded-2xl"
         >
           <HeroItemCard
             img={burger}

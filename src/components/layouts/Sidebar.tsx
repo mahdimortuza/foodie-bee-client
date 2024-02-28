@@ -1,9 +1,9 @@
-import logo from "@/assets/logo.svg";
 import { cn } from "@/lib/utils";
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { CopyPlus, HomeIcon, LayoutDashboard, QrCode } from "lucide-react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { ModeToggle } from "../modeToggle/ModeToggle";
 import { Button } from "../ui/button";
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -16,16 +16,14 @@ const Sidebar = () => {
   return (
     <aside className="col-span-2 bg-slate-100 h-screen sticky top-0 left-0 overflow-auto p-4 lg:p-5">
       <nav className="flex flex-col gap-5">
-        <Link to="/">
-          <img className="w-[120px] h-auto mx-auto" src={logo} />
-        </Link>
+        <ModeToggle />
 
         {/* sidebar navigation link starts here  */}
         <NavLink
           to="/admin/dashboard"
           className={({ isActive }) =>
             cn(
-              "p-3 rounded-sm text-dark-blue transition-all bg-light-tangerine flex items-center gap-2",
+              "p-3 rounded-sm text-dark-blue transition-all bg-gray flex items-center gap-2",
               {
                 " bg-tangerine text-white": isActive,
               }
@@ -40,7 +38,7 @@ const Sidebar = () => {
           to="/admin/supplies"
           className={({ isActive }) =>
             cn(
-              "p-3 rounded-sm text-dark-blue transition-all bg-light-tangerine flex items-center gap-2",
+              "p-3 rounded-sm text-dark-blue transition-all bg-gray flex items-center gap-2",
               {
                 " bg-tangerine text-white": isActive,
               }
@@ -55,7 +53,7 @@ const Sidebar = () => {
           to="/admin/create-supply"
           className={({ isActive }) =>
             cn(
-              "p-3 rounded-sm text-dark-blue transition-all bg-light-tangerine flex items-center gap-2",
+              "p-3 rounded-sm text-dark-blue transition-all bg-gray flex items-center gap-2",
               {
                 " bg-tangerine text-white": isActive,
               }
@@ -70,7 +68,7 @@ const Sidebar = () => {
           to="/"
           className={({ isActive }) =>
             cn(
-              "p-3 rounded-sm text-dark-blue transition-all bg-light-tangerine flex items-center gap-2",
+              "p-3 rounded-sm text-dark-blue transition-all bg-gray flex items-center gap-2",
               {
                 " bg-tangerine text-white": isActive,
               }
