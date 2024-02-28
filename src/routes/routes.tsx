@@ -6,6 +6,7 @@ import AllSuppliesManagement from "@/pages/admin/AllSuppliesManagement";
 import CreateSupplyManagement from "@/pages/admin/CreateSupplyManagement";
 import Dashboard from "@/pages/admin/Dashboard";
 import Community from "@/pages/community/Community";
+import LeaderBoard from "@/pages/leaderBoard/LeaderBoard";
 import Login from "@/pages/login/Login";
 import Registration from "@/pages/registration/Registration";
 import SupplyDetail from "@/pages/supplyDetail/SupplyDetail";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <Community />,
+      },
+      {
+        path: "leader-board",
+        element: <LeaderBoard />,
       },
     ],
   },

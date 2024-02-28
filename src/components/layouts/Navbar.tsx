@@ -170,13 +170,17 @@ const Navbar = () => {
 
         {/* burger  menu button for mobile  */}
         <button className="text-black block md:hidden" onClick={handleOpen}>
-          {open ? <X className=" w-7 h-7 " /> : <Menu className=" w-7 h-7 " />}
+          {open ? (
+            <X className=" text-tangerine w-7 h-7 " />
+          ) : (
+            <Menu className=" text-tangerine w-7 h-7 " />
+          )}
         </button>
       </nav>
 
       {
         <ul
-          className={`w-full py-10 mt-[80px]  text-center bg-slate-100 flex
+          className={`w-full py-10 mt-[80px]  text-center bg-gray flex
            md:hidden flex-col gap-5 absolute transition duration-1000 ease-in-out ${
              open ? "top-0" : "-top-[400px]"
            }`}
@@ -217,7 +221,7 @@ const Navbar = () => {
               <span className="inline-block">About Us</span>{" "}
               <ChevronDown className="inline-block" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="  bg-light-tangerine rounded-xl p-2">
+            <DropdownMenuContent className=" bg-light-tangerine rounded-xl p-2">
               <DropdownMenuItem>
                 <NavLink
                   className={({ isActive }) =>
