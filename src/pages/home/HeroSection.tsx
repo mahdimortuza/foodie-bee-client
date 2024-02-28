@@ -22,7 +22,6 @@ const HeroSection = () => {
             Transforming food distribution for freshness and efficiency –
             welcome to
             <span className=" text-tangerine text-2xl font-bold">
-              {" "}
               Foodie Bee
             </span>
             , your reliable partner in sustainable supply chain management.
@@ -36,7 +35,7 @@ const HeroSection = () => {
             <NavLink to="/">
               <span className="flex gap-1 items-center">
                 <PlayCircle className=" text-tangerine w-[40px] h-[40px]" />
-                <span className="text-xl font-bold">Distribution Process</span>
+                <span className="text-xl font-bold">Supply Process</span>
               </span>
             </NavLink>
           </div>

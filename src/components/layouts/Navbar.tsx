@@ -55,6 +55,20 @@ const Navbar = () => {
             All Supplies
           </NavLink>
 
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "font-roboto text-[18px] font-medium leading-[150%] px-3 py-1 rounded",
+                {
+                  " bg-tangerine text-white": isActive,
+                }
+              )
+            }
+            to="/community"
+          >
+            Community
+          </NavLink>
+
           {user ? (
             <NavLink
               className={({ isActive }) =>
@@ -117,6 +131,7 @@ const Navbar = () => {
           >
             Home
           </NavLink>
+
           <NavLink
             onClick={handleOpen}
             className={({ isActive }) =>
@@ -130,6 +145,21 @@ const Navbar = () => {
             to="/supplies"
           >
             All Supplies
+          </NavLink>
+
+          <NavLink
+            onClick={handleOpen}
+            className={({ isActive }) =>
+              cn(
+                "font-roboto text-[20px] font-medium leading-[150%] tracking-wider",
+                {
+                  " bg-tangerine text-white": isActive,
+                }
+              )
+            }
+            to="/community"
+          >
+            Community
           </NavLink>
 
           {user ? (

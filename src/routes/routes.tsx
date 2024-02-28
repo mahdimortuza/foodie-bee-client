@@ -1,8 +1,10 @@
 import AdminLayout from "@/components/layouts/AdminLayout";
 import ProtectedRoute from "@/components/layouts/ProtectedRoute";
+import ErrorPage from "@/pages/ErrorPage";
 import AllSuppliesManagement from "@/pages/admin/AllSuppliesManagement";
 import CreateSupplyManagement from "@/pages/admin/CreateSupplyManagement";
 import Dashboard from "@/pages/admin/Dashboard";
+import Community from "@/pages/community/Community";
 import Login from "@/pages/login/Login";
 import Registration from "@/pages/registration/Registration";
 import SupplyDetail from "@/pages/supplyDetail/SupplyDetail";
@@ -15,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "supplies/:id",
         element: <SupplyDetail />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
     ],
   },
