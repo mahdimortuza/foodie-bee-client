@@ -4,12 +4,14 @@ import AboutUs from "@/pages/about/AboutUs";
 import AllSuppliesManagement from "@/pages/admin/AllSuppliesManagement";
 import CreateSupplyManagement from "@/pages/admin/CreateSupplyManagement";
 import Dashboard from "@/pages/admin/Dashboard";
+import TestimonialManagement from "@/pages/admin/TestimonialManagement";
 import Community from "@/pages/community/Community";
 import ErrorPage from "@/pages/error/ErrorPage";
 import LeaderBoard from "@/pages/leaderBoard/LeaderBoard";
 import Login from "@/pages/login/Login";
 import Registration from "@/pages/registration/Registration";
 import SupplyDetail from "@/pages/supplyDetail/SupplyDetail";
+import Volunteer from "@/pages/valunteer/Volunteer";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import AllSupplies from "../pages/allSupplies/AllSupplies";
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "leader-board",
         element: <LeaderBoard />,
+      },
+      {
+        path: "volunteer",
+        element: <Volunteer />,
       },
     ],
   },
@@ -80,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "create-supply",
         element: <CreateSupplyManagement />,
+      },
+      {
+        path: "create-testimonial",
+        element: <TestimonialManagement />,
       },
     ],
   },

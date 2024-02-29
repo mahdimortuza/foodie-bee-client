@@ -1,7 +1,13 @@
 import { cn } from "@/lib/utils";
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import { CopyPlus, HomeIcon, LayoutDashboard, QrCode } from "lucide-react";
+import {
+  CopyPlus,
+  HomeIcon,
+  LayoutDashboard,
+  MessageCircleHeart,
+  QrCode,
+} from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ModeToggle } from "../modeToggle/ModeToggle";
 import { Button } from "../ui/button";
@@ -62,6 +68,21 @@ const Sidebar = () => {
         >
           <CopyPlus className=" shrink-0" />
           <span className="truncate">Create supply</span>
+        </NavLink>
+
+        <NavLink
+          to="/admin/create-testimonial"
+          className={({ isActive }) =>
+            cn(
+              "p-3 rounded-sm text-dark-blue transition-all bg-gray flex items-center gap-2",
+              {
+                " bg-tangerine text-white": isActive,
+              }
+            )
+          }
+        >
+          <MessageCircleHeart className=" shrink-0" />
+          <span className="truncate">Testimonials</span>
         </NavLink>
 
         <NavLink
