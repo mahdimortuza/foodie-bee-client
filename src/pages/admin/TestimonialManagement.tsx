@@ -82,7 +82,7 @@ const TestimonialManagement = () => {
         <div className="flex flex-col">
           <input
             className="rounded"
-            placeholder="Review"
+            placeholder="Rate out of 5"
             {...register("review", { required: true })}
           />
           {errors.review && (

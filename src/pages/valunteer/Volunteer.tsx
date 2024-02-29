@@ -42,7 +42,7 @@ const Volunteer = () => {
   return (
     <Container className="py-5">
       <div className="p-10">
-        <DashboardPageTitle title="Create a new food supply" />
+        <DashboardPageTitle title="Join us as a volunteer" />
 
         <form
           className="mt-10 grid grid-cols-1 md:grid-cols-2  gap-4"
