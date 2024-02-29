@@ -1,15 +1,15 @@
-import { Star, StarHalf } from "lucide-react";
-
-type TReviewProps = {
+export type TReviewProps = {
+  _id: string;
   profileImg: string;
   userName: string;
   reviewText: string;
+  review: number;
 };
-const TestimonialCard = ({
-  profileImg,
-  userName,
-  reviewText,
-}: TReviewProps) => {
+type TTestimonialItem = {
+  item: TReviewProps;
+};
+const TestimonialCard = ({ item }: TTestimonialItem) => {
+  const { profileImg, userName, reviewText, review } = item;
   return (
     <div
       className={`w-[350px] lg:w-[400px] p-5 rounded-[24px] transition-all duration-200
@@ -22,13 +22,7 @@ const TestimonialCard = ({
           <h3 className=" text-[25px] font-inter text-red-500 font-bold leading-[150%]">
             {userName}
           </h3>
-          <div className="flex gap-1 mt-4">
-            <Star className=" text-tangerine" />
-            <Star className=" text-tangerine" />
-            <Star className=" text-tangerine" />
-            <Star className=" text-tangerine" />
-            <StarHalf className=" text-tangerine" />
-          </div>
+          <div className="flex gap-1 mt-4">{review}</div>
         </div>
       </div>
 
