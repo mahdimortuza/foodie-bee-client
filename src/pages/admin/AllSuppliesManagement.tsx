@@ -10,7 +10,8 @@ const AllSuppliesManagement = () => {
 
   if (isLoading) {
     return <LoadingSkeleton />;
-  } else if (isError) {
+  }
+  if (isError) {
     return <ErrorMessage />;
   }
 

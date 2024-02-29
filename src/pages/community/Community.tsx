@@ -3,18 +3,21 @@ import { AddCommentDIalog } from "@/components/addCommentDialog/AddCommentDialog
 import CommentCard, {
   TCommentProps,
 } from "@/components/commentCard/CommentCard";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import LoadingSkeleton from "@/components/loadingSkeleton/LoadingSkeleton";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
-import { useEffect, useState } from "react";
+import { useGetCommentsQuery } from "@/redux/features/community/communityApi";
 
 const Community = () => {
-  const [comments, setComments] = useState([]);
+  const { data: comments, isLoading, isError } = useGetCommentsQuery(undefined);
+  console.log(comments);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/v1/community")
-      .then((response) => response.json())
-      .then((data) => setComments(data));
-  }, []);
-
+  if (isLoading) {
+    return <LoadingSkeleton />;
+  }
+  if (isError) {
+    return <ErrorMessage />;
+  }
   return (
     <Container className="py-5">
       <SectionTitle title="Community" des="Expression of our grateful people" />

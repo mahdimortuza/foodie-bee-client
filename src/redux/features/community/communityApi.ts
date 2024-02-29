@@ -9,6 +9,12 @@ const communityApi = baseApi.injectEndpoints({
         body: comment,
       }),
     }),
+    getComments: builder.query({
+      query: () => ({
+        url: "/community",
+        method: "GET",
+      }),
+    }),
   }),
 });
-export const { useCreateCommentMutation } = communityApi;
+export const { useCreateCommentMutation, useGetCommentsQuery } = communityApi;

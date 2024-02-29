@@ -28,6 +28,8 @@ export function AddCommentDIalog() {
       const commentData = {
         author: data.name,
         comment: data.comment,
+        likes: 0,
+        disLikes: 0,
       };
       const res = await createComment(commentData).unwrap();
       dispatch(res);
