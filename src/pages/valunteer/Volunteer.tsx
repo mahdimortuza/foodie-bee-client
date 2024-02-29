@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
 import DashboardPageTitle from "@/components/dashboardPageTitle/DashboardPageTitle";
-import { useCreateSupplyMutation } from "@/redux/features/supply/createSupplyApi";
+import { useCreateVolunteerMutation } from "@/redux/features/voulnteer/volunteerApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -13,26 +13,25 @@ const Volunteer = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const [createSupply] = useCreateSupplyMutation();
+  const [createVolunteer] = useCreateVolunteerMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating supply");
+    const toastId = toast.loading("Creating volunteer");
     try {
-      const supplyData = {
-        image: data.image,
-        title: data.title,
-        category: data.category,
-        quantity: data.quantity,
-        description: data.description,
+      const volunteer = {
+        userName: data.userName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        location: data.location,
       };
-      const res = await createSupply(supplyData).unwrap();
+      const res = await createVolunteer(volunteer).unwrap();
       dispatch(res);
-      toast.success("Supply created successfully", {
+      toast.success("Volunteer created successfully", {
         id: toastId,
         duration: 3000,
       });
     } catch (error) {
-      toast.success("Supply created successfully", {
+      toast.success("Volunteer created successfully", {
         id: toastId,
         duration: 3000,
       });
@@ -51,61 +50,50 @@ const Volunteer = () => {
           <div className="flex flex-col">
             <input
               className="rounded"
-              placeholder="Image"
-              {...register("image", { required: true })}
+              placeholder="User Name"
+              {...register("userName", { required: true })}
             />
-            {errors.image && (
-              <span className="text-red-500">Image Link is required</span>
+            {errors.userName && (
+              <span className="text-red-500">User Name Link is required</span>
             )}
           </div>
 
           <div className="flex flex-col">
             <input
               className="rounded"
-              placeholder="Category"
-              {...register("category", { required: true })}
+              placeholder="Email"
+              {...register("email", { required: true })}
             />
-            {errors.category && (
-              <span className="text-red-500">Category field is required</span>
+            {errors.email && (
+              <span className="text-red-500">Email field is required</span>
             )}
           </div>
 
           <div className="flex flex-col">
             <input
               className="rounded"
-              placeholder="Title"
-              {...register("title", { required: true })}
+              placeholder="Phone Number"
+              {...register("phoneNumber", { required: true })}
             />
-            {errors.title && (
-              <span className="text-red-500">Title field is required</span>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <input
-              className="rounded"
-              placeholder="Quantity"
-              {...register("quantity", { required: true })}
-            />
-            {errors.quantity && (
-              <span className="text-red-500">Quantity field is required</span>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <input
-              className="rounded"
-              placeholder="Description"
-              {...register("description", { required: true })}
-            />
-            {errors.description && (
+            {errors.phoneNumber && (
               <span className="text-red-500">
-                Description field is required
+                Phone Number field is required
               </span>
             )}
           </div>
+
+          <div className="flex flex-col">
+            <input
+              className="rounded"
+              placeholder="Location"
+              {...register("location", { required: true })}
+            />
+            {errors.location && (
+              <span className="text-red-500">Location field is required</span>
+            )}
+          </div>
           <input
-            className=" bg-tangerine text-white rounded  font-bold"
+            className=" bg-tangerine text-white rounded  font-bold py-2"
             type="submit"
           />
         </form>

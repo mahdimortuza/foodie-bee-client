@@ -1,21 +1,36 @@
 // LeaderBoard.jsx
 
 import Container from "@/components/Container";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import LeaderBoardCard, {
   TLeaderBoardProps,
 } from "@/components/leaderBoardCard/LeaderBoardCard";
+import LoadingSkeleton from "@/components/loadingSkeleton/LoadingSkeleton";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
-import { useEffect, useState } from "react";
+import { useGetDonationQuery } from "@/redux/features/donation/createDonationApi";
 
 const LeaderBoard = () => {
-  const [topDonors, setTopDonors] = useState([]);
+  // const [topDonors, setTopDonors] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/v1/donate")
-      .then((response) => response.json())
-      .then((data) => setTopDonors(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/api/v1/donate")
+  //     .then((response) => response.json())
+  //     .then((data) => setTopDonors(data));
+  // }, []);
 
+  const {
+    data: topDonors,
+    isLoading,
+    isError,
+  } = useGetDonationQuery(undefined);
+  console.log(topDonors);
+
+  if (isLoading) {
+    return <LoadingSkeleton />;
+  }
+  if (isError) {
+    return <ErrorMessage />;
+  }
   return (
     <Container className="py-5">
       <SectionTitle title="Leader Board" des="Top Donors Recognition" />
