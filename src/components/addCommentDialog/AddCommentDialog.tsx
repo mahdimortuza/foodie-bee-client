@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useCreateSupplyMutation } from "@/redux/features/supply/createSupplyApi";
+import { useCreateCommentMutation } from "@/redux/features/community/communityApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -20,26 +20,23 @@ export function AddCommentDIalog() {
     reset,
     formState: { errors },
   } = useForm();
-  const [createSupply] = useCreateSupplyMutation();
+  const [createComment] = useCreateCommentMutation();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating supply");
+    const toastId = toast.loading("Creating a post");
     try {
-      const supplyData = {
-        image: data.image,
-        title: data.title,
-        category: data.category,
-        quantity: data.quantity,
-        description: data.description,
+      const commentData = {
+        author: data.name,
+        comment: data.comment,
       };
-      const res = await createSupply(supplyData).unwrap();
+      const res = await createComment(commentData).unwrap();
       dispatch(res);
-      toast.success("Supply created successfully", {
+      toast.success("Comment added successfully", {
         id: toastId,
         duration: 3000,
       });
     } catch (error) {
-      toast.success("Supply created successfully", {
+      toast.success("Comment added successfully", {
         id: toastId,
         duration: 3000,
       });
@@ -68,59 +65,25 @@ export function AddCommentDIalog() {
           <div className="flex flex-col">
             <input
               className="rounded"
-              placeholder="Image"
-              {...register("image", { required: true })}
-            />
-            {errors.image && (
-              <span className="text-red-500">Image Link is required</span>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <input
-              className="rounded"
-              placeholder="Category"
-              {...register("category", { required: true })}
+              placeholder="Name"
+              {...register("name", { required: true })}
             />
             {errors.category && (
-              <span className="text-red-500">Category field is required</span>
+              <span className="text-red-500">Name field is required</span>
             )}
           </div>
 
           <div className="flex flex-col">
             <input
               className="rounded"
-              placeholder="Title"
-              {...register("title", { required: true })}
+              placeholder="Comment"
+              {...register("comment", { required: true })}
             />
             {errors.title && (
-              <span className="text-red-500">Title field is required</span>
+              <span className="text-red-500">Comment field is required</span>
             )}
           </div>
 
-          <div className="flex flex-col">
-            <input
-              className="rounded"
-              placeholder="Quantity"
-              {...register("quantity", { required: true })}
-            />
-            {errors.quantity && (
-              <span className="text-red-500">Quantity field is required</span>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <input
-              className="rounded"
-              placeholder="Description"
-              {...register("description", { required: true })}
-            />
-            {errors.description && (
-              <span className="text-red-500">
-                Description field is required
-              </span>
-            )}
-          </div>
           <input
             className=" bg-tangerine text-white rounded  font-bold"
             type="submit"
