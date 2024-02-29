@@ -87,7 +87,7 @@ export function AddCommentDIalog() {
           </div>
 
           <input
-            className=" bg-tangerine text-white rounded  font-bold"
+            className=" bg-tangerine text-white rounded py-2 font-bold"
             type="submit"
           />
         </form>

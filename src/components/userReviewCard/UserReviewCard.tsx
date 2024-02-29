@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 type TReviewProps = {
   img: string;
   name: string;
@@ -6,7 +7,13 @@ type TReviewProps = {
 };
 const UserReviewCard = ({ img, name, designation, review }: TReviewProps) => {
   return (
-    <div className="rounded p-2 m-2">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 1, delay: 0.4 }}
+      className="rounded p-2 m-2"
+    >
       <div className="flex  items-center">
         <img className="mx-auto rounded-full" src={img} />
         <div>
@@ -15,7 +22,7 @@ const UserReviewCard = ({ img, name, designation, review }: TReviewProps) => {
         </div>
       </div>
       <p className="text-center mt-10">{review}</p>
-    </div>
+    </motion.div>
   );
 };
 

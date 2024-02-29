@@ -1,6 +1,7 @@
 // import Autoplay from "embla-carousel-autoplay";
 import reviewBanner from "@/assets/client-review-img/review-img.svg";
 import user1 from "@/assets/client-review-img/user.svg";
+import { motion } from "framer-motion";
 
 import {
   Carousel,
@@ -58,7 +59,14 @@ const UserReview = () => {
         </Carousel>
 
         {/* user review banner image  */}
-        <img className="w-[370px] md:w-[500px] h-auto" src={reviewBanner} />
+        <motion.img
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="w-[370px] md:w-[500px] h-auto"
+          src={reviewBanner}
+        />
       </div>
     </Container>
   );

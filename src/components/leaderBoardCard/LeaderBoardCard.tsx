@@ -15,8 +15,8 @@ const LeaderBoardCard = ({ item }: TLeaderBoardItems) => {
   return (
     <div className="bg-white p-4  rounded-lg shadow flex justify-between  items-center">
       <div>
-        <p className="text-lg font-semibold text-gray-800">{name}</p>
-        <p className="text-gray-600 mt-2">${amount} Donation</p>
+        <p className="text-black text-lg font-semibold">{name}</p>
+        <p className="text-black mt-2">${amount} Donation</p>
       </div>
       <Button>Details</Button>
     </div>

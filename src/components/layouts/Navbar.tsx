@@ -28,10 +28,10 @@ const Navbar = () => {
     navigate("/");
   };
   return (
-    <header className="h-12 py-12">
+    <header className="h-14 py-16">
       <nav className="h-full w-full max-w-[1300px] px-5 mx-auto flex justify-between items-center sticky top-0">
         <NavLink to="/">
-          <img src={logo} />
+          <img className="w-[120px] h-auto" src={logo} />
         </NavLink>
         <ul className="space-x-5   hidden md:block">
           <NavLink

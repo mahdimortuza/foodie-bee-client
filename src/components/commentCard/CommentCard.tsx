@@ -18,16 +18,16 @@ const CommentCard = ({ item }: TCommentItem) => {
   return (
     <div className="bg-white p-4 mb-4 border rounded  flex items-center justify-between">
       <div>
-        <h4 className="text-xl font-semibold">{author}</h4>
-        <p>{comment}</p>
+        <h4 className="text-xl font-semibold text-black">{author}</h4>
+        <p className="text-black">{comment}</p>
       </div>
       <div className="flex item-center gap-10">
         <div className="">
-          <ThumbsUp />
+          <ThumbsUp className="text-black" />
           <span className="text-base font-bold text-tangerine">{likes}</span>
         </div>
         <div>
-          <ThumbsDown />
+          <ThumbsDown className="text-black" />
           <span className="text-base font-bold text-red-500">{disLikes}</span>
         </div>
       </div>

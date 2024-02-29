@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { Button } from "../ui/button";
 
@@ -15,7 +16,13 @@ type TSupplyItem = {
 const SupplyCard = ({ item }: TSupplyItem) => {
   const { _id, image, category, title, quantity } = item;
   return (
-    <div className="w-[370px] h-[330px] rounded-xl shadow-[0_20px_30px_0px_rgba(0,0,0,0.1)] rounded-t-3xl">
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 1, delay: 0.4 }}
+      className="w-[370px] h-[330px] rounded-xl shadow-[0_20px_30px_0px_rgba(0,0,0,0.1)] rounded-t-3xl"
+    >
       <div className="overflow-hidden  ">
         <img
           className="h-[220px] w-full hover:scale-105 transition-all duration-300 rounded-t-3xl"
@@ -40,7 +47,7 @@ const SupplyCard = ({ item }: TSupplyItem) => {
           </NavLink>{" "}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

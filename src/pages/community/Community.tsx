@@ -7,10 +7,9 @@ import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import LoadingSkeleton from "@/components/loadingSkeleton/LoadingSkeleton";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
 import { useGetCommentsQuery } from "@/redux/features/community/communityApi";
-
+import { motion } from "framer-motion";
 const Community = () => {
   const { data: comments, isLoading, isError } = useGetCommentsQuery(undefined);
-  console.log(comments);
 
   if (isLoading) {
     return <LoadingSkeleton />;
@@ -21,7 +20,13 @@ const Community = () => {
   return (
     <Container className="py-5">
       <SectionTitle title="Community" des="Expression of our grateful people" />
-      <div className="container mx-auto p-8">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="container mx-auto p-8"
+      >
         <div className="">
           <h1 className="text-3xl font-bold mb-4">Gratitude Wall</h1>
           <AddCommentDIalog />
@@ -32,7 +37,7 @@ const Community = () => {
             <CommentCard key={item._id} item={item} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </Container>
   );
 };

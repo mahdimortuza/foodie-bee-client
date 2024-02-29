@@ -4,7 +4,7 @@ import spoon from "@/assets/about-us-img/spoon.svg";
 import Container from "@/components/Container";
 import AboutCard from "@/components/aboutCard/AboutCard";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
-
+// import { motion } from "framer-motion";
 const AboutUsSection = () => {
   return (
     <Container className=" py-5">

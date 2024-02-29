@@ -6,18 +6,23 @@ import pizza from "@/assets/hero-imgs/pizza.svg";
 import Container from "@/components/Container";
 import HeroItemCard from "@/components/heroItemCard/HeroItemCard";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { PlayCircle } from "lucide-react";
 import { NavLink } from "react-router-dom";
-
 const HeroSection = () => {
   return (
     <Container className="py-5">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 place-items-center">
         {/* 1st col  */}
-        <div>
-          <h1 className=" text-3xl md:text-5xl font-semibold">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.h1 className=" text-3xl md:text-5xl font-semibold">
             Connecting Farms to Forks
-          </h1>
+          </motion.h1>
           <p className=" text-base md:text-xl mt-6">
             Transforming food distribution for freshness and efficiency –
             welcome to
@@ -39,13 +44,24 @@ const HeroSection = () => {
               </span>
             </NavLink>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2nd col  */}
-        <img className="hidden lg:block" src={arrow} />
+        <motion.img
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="hidden lg:block"
+          src={arrow}
+        />
 
         {/* 3rd col  */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
           className="grid grid-cols-2 md:w-full 
         bg-gradient-to-b from-tangerine to-light-tangerine rounded-2xl"
         >
@@ -73,7 +89,7 @@ const HeroSection = () => {
             des={"Mushroom Sauce"}
             price={5.15}
           />
-        </div>
+        </motion.div>
       </div>
     </Container>
   );

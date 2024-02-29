@@ -24,8 +24,7 @@ const AboutUs = () => {
     <Container className="py-5">
       <SectionTitle title="Volunteer" des="Our Volunteers" />
 
-      <div id="our-volunteers">
-        <h2 className="text-2xl font-bold mb-4">Our Volunteers</h2>
+      <div>
         {volunteers.map((item: TVolunteerProps) => (
           <VolunteerCard key={item._id} item={item} />
         ))}
