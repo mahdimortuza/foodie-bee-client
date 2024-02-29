@@ -10,14 +10,6 @@ import SectionTitle from "@/components/sectionTitle/SectionTitle";
 import { useGetDonationQuery } from "@/redux/features/donation/createDonationApi";
 
 const LeaderBoard = () => {
-  // const [topDonors, setTopDonors] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/api/v1/donate")
-  //     .then((response) => response.json())
-  //     .then((data) => setTopDonors(data));
-  // }, []);
-
   const {
     data: topDonors,
     isLoading,

@@ -22,7 +22,7 @@ const SubscribeSection = () => {
               type="text"
               placeholder="Type your email....."
             />
-            <MousePointer2 className=" rotate-[137deg] absolute left-[250px] md:left-[350px] text-tangerine" />
+            <MousePointer2 className=" rotate-[137deg] absolute left-[230px] md:left-[320px] text-tangerine" />
           </div>
         </div>
       </div>
