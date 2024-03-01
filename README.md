@@ -1,7 +1,7 @@
 # Foodie-bee-Client
 
-Live site: https://foodie-bee-client.vercel.app
-Live server: https://foodie-bee-server.vercel.app/
+Live site: https://foodie-bee-client-main.vercel.app/
+Live server: https://foodie-bee-server-main.vercel.app/
 
 ## Installation:
 
