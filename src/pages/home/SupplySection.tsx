@@ -4,7 +4,7 @@ import LoadingSkeleton from "@/components/loadingSkeleton/LoadingSkeleton";
 import SectionTitle from "@/components/sectionTitle/SectionTitle";
 import SupplyCard, { TCardProps } from "@/components/supplyCard/SupplyCard";
 import { Button } from "@/components/ui/button";
-import { useGetLimitedSuppliesQuery } from "@/redux/features/supply/limitedSupplyApi";
+import { useGetLimitedSuppliesQuery } from "@/redux/features/supply/supplyApi";
 import { Link } from "react-router-dom";
 
 const SupplySection = () => {

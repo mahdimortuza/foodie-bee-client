@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import { DonationDialog } from "@/components/donationDialog/DonationDialog";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import LoadingSkeleton from "@/components/loadingSkeleton/LoadingSkeleton";
-import { useGetSingleSupplyQuery } from "@/redux/features/supply/singleSupplyApi";
+import { useGetSingleSupplyQuery } from "@/redux/features/supply/supplyApi";
 import { useParams } from "react-router-dom";
 
 const SupplyDetail = () => {

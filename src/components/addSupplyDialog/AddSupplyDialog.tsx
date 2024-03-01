@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useCreateSupplyMutation } from "@/redux/features/supply/createSupplyApi";
+import { useCreateSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -20,6 +20,7 @@ export function AddSupplyDialog() {
     reset,
     formState: { errors },
   } = useForm();
+
   const [createSupply] = useCreateSupplyMutation();
 
   const onSubmit = async (data: FieldValues) => {

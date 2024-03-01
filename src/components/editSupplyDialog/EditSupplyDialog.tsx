@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useUpdateSupplyMutation } from "@/redux/features/supply/updateSupplyapi";
+import { useUpdateSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { SquarePen } from "lucide-react";
 import { FieldValues, useForm } from "react-hook-form";

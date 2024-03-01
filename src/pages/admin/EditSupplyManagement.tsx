@@ -1,37 +1,47 @@
 import DashboardPageTitle from "@/components/dashboardPageTitle/DashboardPageTitle";
-import { useCreateSupplyMutation } from "@/redux/features/supply/supplyApi";
+import {
+  useGetSingleSupplyQuery,
+  useUpdateSupplyMutation,
+} from "@/redux/features/supply/supplyApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { FieldValues, useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 
-const CreateSupplyManagement = () => {
+const EditSupplyManagement = () => {
   const dispatch = useAppDispatch();
+  const id = useParams();
+  const { data } = useGetSingleSupplyQuery(id);
+
+  console.log(id);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const [createSupply] = useCreateSupplyMutation();
+  const [updateSupply] = useUpdateSupplyMutation();
 
-  const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating supply");
+  const onSubmit = async ({ _id, data }: FieldValues) => {
+    const toastId = toast.loading("Editing supply");
     try {
       const supplyData = {
+        _id: _id,
         image: data.image,
         title: data.title,
         category: data.category,
         quantity: data.quantity,
         description: data.description,
       };
-      const res = await createSupply(supplyData).unwrap();
+      const res = await updateSupply(supplyData).unwrap();
+      console.log(res);
       dispatch(res);
-      toast.success("Supply created successfully", {
+      toast.success("Supply edited successfully", {
         id: toastId,
         duration: 3000,
       });
     } catch (error) {
-      toast.success("Supply created successfully", {
+      toast.success("Supply edited successfully", {
         id: toastId,
         duration: 3000,
       });
@@ -41,11 +51,11 @@ const CreateSupplyManagement = () => {
 
   return (
     <div className="p-10">
-      <DashboardPageTitle title="Create a new food supply" />
+      <DashboardPageTitle title="Edit the food supply" />
 
       <form
         className="mt-10 grid grid-cols-1 md:grid-cols-2  gap-4"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit((_id) => onSubmit(_id))}
       >
         <div className="flex flex-col">
           <input
@@ -72,7 +82,7 @@ const CreateSupplyManagement = () => {
         <div className="flex flex-col">
           <input
             className="rounded"
-            placeholder="Title"
+            placeholder="title"
             {...register("title", { required: true })}
           />
           {errors.title && (
@@ -110,4 +120,4 @@ const CreateSupplyManagement = () => {
   );
 };
 
-export default CreateSupplyManagement;
+export default EditSupplyManagement;

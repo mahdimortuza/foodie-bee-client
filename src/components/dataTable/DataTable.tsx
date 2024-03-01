@@ -1,4 +1,4 @@
-import { useDeleteSupplyMutation } from "@/redux/features/supply/deleteSupplyApi";
+import { useDeleteSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { Trash } from "lucide-react";
 import Swal from "sweetalert2";
 import { EditSupplyDialog } from "../editSupplyDialog/EditSupplyDialog";
@@ -52,7 +52,6 @@ const DataTable = ({ item, index }: TTableProps) => {
       <div className="text-right">{quantity}</div>
       <div className="flex justify-between">
         <EditSupplyDialog item={item} />
-
         <Button
           onClick={() => handleDelete(_id)}
           className="bg-red-500 hover:bg-red-600"

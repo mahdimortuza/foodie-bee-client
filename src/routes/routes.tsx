@@ -4,6 +4,7 @@ import AboutUs from "@/pages/about/AboutUs";
 import AllSuppliesManagement from "@/pages/admin/AllSuppliesManagement";
 import CreateSupplyManagement from "@/pages/admin/CreateSupplyManagement";
 import Dashboard from "@/pages/admin/Dashboard";
+import EditSupplyManagement from "@/pages/admin/EditSupplyManagement";
 import TestimonialManagement from "@/pages/admin/TestimonialManagement";
 import Community from "@/pages/community/Community";
 import ErrorPage from "@/pages/error/ErrorPage";
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "create-testimonial",
         element: <TestimonialManagement />,
+      },
+      {
+        path: "edit-supply/:id",
+        element: <EditSupplyManagement />,
       },
     ],
   },
