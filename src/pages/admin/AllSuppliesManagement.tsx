@@ -27,7 +27,6 @@ const AllSuppliesManagement = () => {
             <div className="text-lg font-semibold">Title</div>
             <div className="text-lg font-semibold">Category</div>
             <div className="text-lg font-semibold">Quantity</div>
-
             <div className="text-lg font-semibold">Edit</div>
             <div className="text-lg font-semibold">Delete</div>
           </div>

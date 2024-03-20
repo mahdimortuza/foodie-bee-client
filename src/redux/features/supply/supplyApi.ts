@@ -2,36 +2,35 @@ import { baseApi } from "@/redux/api/baseApi";
 
 const supplyApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getAllSupplies: builder.query({
+      query: () => ({
+        url: "/supplies",
+        method: "GET",
+        providesTags: ["supply"],
+      }),
+    }),
+
     createSupply: builder.mutation({
       query: (supplyData) => ({
         url: "/supplies",
         method: "POST",
         body: supplyData,
-        providesTags: ["Supply"],
       }),
-      invalidatesTags: ["Supply"],
-    }),
-
-    getAllSupplies: builder.query({
-      query: () => ({
-        url: "/supplies",
-        method: "GET",
-        providesTags: ["Supply"],
-      }),
+      invalidatesTags: ["supplies"],
     }),
 
     getSingleSupply: builder.query({
       query: (id) => ({
         url: `/supplies/${id}`,
         method: "GET",
-        providesTags: ["Supply"],
+        invalidatesTags: ["supplies"],
       }),
     }),
     getLimitedSupplies: builder.query({
       query: () => ({
         url: "/limited-supplies",
         method: "GET",
-        providesTags: ["Supply"],
+        invalidatesTags: ["supplies"],
       }),
     }),
 
@@ -40,16 +39,16 @@ const supplyApi = baseApi.injectEndpoints({
         url: `/supplies/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Supply"],
+      invalidatesTags: ["supplies"],
     }),
 
     updateSupply: builder.mutation({
-      query: (supplyData) => ({
-        url: `/supplies/${supplyData._id}`,
+      query: (args) => ({
+        url: `/supplies/${args._id}`,
         method: "PATCH",
-        body: supplyData,
+        body: args.data,
       }),
-      invalidatesTags: ["Supply"],
+      invalidatesTags: ["supplies"],
     }),
   }),
 });

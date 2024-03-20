@@ -10,6 +10,7 @@ import {
 import { useUpdateSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { SquarePen } from "lucide-react";
+import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -27,7 +28,8 @@ type TSupplyItems = {
 };
 
 export function EditSupplyDialog({ item }: TSupplyItems) {
-  const { _id, title, category, quantity, image, description } = item;
+  const [supplyId, setSupplyId] = useState("");
+  const { title, category, quantity, image, description } = item;
 
   const dispatch = useAppDispatch();
   const {
@@ -37,11 +39,11 @@ export function EditSupplyDialog({ item }: TSupplyItems) {
     formState: { errors },
   } = useForm();
 
-  // const { id } = useParams();
   const [updateSupply] = useUpdateSupplyMutation();
 
-  const onSubmit = async ({ _id, data }: FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Updating supply");
+
     try {
       const supplyData = {
         image: data.image,
@@ -50,8 +52,12 @@ export function EditSupplyDialog({ item }: TSupplyItems) {
         quantity: data.quantity,
         description: data.description,
       };
-      const res = await updateSupply({ _id, supplyData }).unwrap();
-      console.log(res);
+
+      const updateData = {
+        _id: supplyId,
+        data: supplyData,
+      };
+      const res = await updateSupply(updateData).unwrap();
       dispatch(res);
       toast.success("Supply updated successfully", {
         id: toastId,
@@ -74,14 +80,17 @@ export function EditSupplyDialog({ item }: TSupplyItems) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>
+            Update{" "}
+            <span className=" text-red-500 font-bold text-2xl">{title}</span>
+          </DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to supply here. Click save when you're done.
           </DialogDescription>
         </DialogHeader>
         <form
           className="mt-10 grid grid-cols-1 md:grid-cols-2  gap-4"
-          onSubmit={handleSubmit(() => onSubmit({ _id }))}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col">
             <input
@@ -145,6 +154,7 @@ export function EditSupplyDialog({ item }: TSupplyItems) {
             )}
           </div>
           <input
+            onClick={() => setSupplyId(item._id)}
             className=" bg-tangerine text-white rounded  font-bold"
             type="submit"
           />

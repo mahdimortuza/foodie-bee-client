@@ -49,9 +49,10 @@ const DataTable = ({ item, index }: TTableProps) => {
       <div className="font-medium">{index + 1}</div>
       <div>{title}</div>
       <div>{category}</div>
-      <div className="text-right">{quantity}</div>
+      <div className="text-left">{quantity}</div>
       <div className="flex justify-between">
         <EditSupplyDialog item={item} />
+
         <Button
           onClick={() => handleDelete(_id)}
           className="bg-red-500 hover:bg-red-600"
