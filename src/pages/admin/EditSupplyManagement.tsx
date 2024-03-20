@@ -1,8 +1,5 @@
 import DashboardPageTitle from "@/components/dashboardPageTitle/DashboardPageTitle";
-import {
-  useGetSingleSupplyQuery,
-  useUpdateSupplyMutation,
-} from "@/redux/features/supply/supplyApi";
+import { useUpdateSupplyMutation } from "@/redux/features/supply/supplyApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { FieldValues, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
@@ -11,7 +8,7 @@ import { toast } from "sonner";
 const EditSupplyManagement = () => {
   const dispatch = useAppDispatch();
   const id = useParams();
-  const { data } = useGetSingleSupplyQuery(id);
+  // const { data } = useGetSingleSupplyQuery(id);
 
   console.log(id);
   const {
